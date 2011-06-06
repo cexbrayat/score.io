@@ -1,0 +1,58 @@
+<html>
+<script type="text/javascript" src="http://localhost:1337/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script type="text/javascript" src="score_client.js"></script>
+<style type="text/css">
+.players {
+border-collapse: separate;
+border-spacing: 30px;
+width: 960px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.row {
+display: table-row;
+}
+
+.player {
+display: table-cell;
+background-color: lightgray;
+height: 70px;
+width: 70px;
+border-radius: 5px;
+box-shadow: 5px 5px black;
+padding: 5px;
+}
+
+.first{
+	background-color: lightgreen;
+}
+
+.player .id {
+font-family: Helvetica;
+font-size: 15pt;
+text-align: center;
+}
+
+.player .score{
+font-family: Helvetica;
+font-size: 20pt;
+text-align: center;
+}
+
+</style>
+<body>
+<div>
+	<label id="playerId">Waiting for connection...</label>
+	<input id="connect" type="button" value="Connect" onClick="connect()"/>
+</div>
+<div id="currentPlayer">
+	<input id="malus" type="button" value="Less" onClick="sendScore(score - 1)"/>
+	<input id="bonus" type="button" value="More" onClick="sendScore(score + 1)"/>
+</div>
+<div class="players">
+	<div class="row"></div>
+</div>
+</body>
+</html>
